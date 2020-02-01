@@ -12,5 +12,11 @@
         {% endif %}
         <h2>{{ post.title }}</h2>
         <p>{{ post.text|linebreaksbr }}</p>
+        <ul>
+            {% for tag in post.tags.all %}
+                <li> {{ tag.name }} </li>
+            {% endfor %}
+        </ul>
+        <p>{{ post.tag }}</p>
     </div>
 {% endblock %}

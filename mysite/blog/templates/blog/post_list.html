@@ -8,12 +8,19 @@
             </div>
             <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
             <p>{{ post.text|linebreaksbr }}</p>
+            <ul>
+                {% for tag in post.tags.all %}
+                    <li> {{ tag.name }} </li>
+                {% endfor %}
+            </ul>
         </div>
     {% endfor %}
-    <div class="tag-cloud">
-        <p class="tag-cloud-title">Chmura tagów</p>
-        {% for tag in tags %}
-            <a class="tag">{{ tag }}</a>
-        {% endfor %}
-    </div>
+    <section class="tags">
+        <p class="section-title">Chmura tagów</p>
+        <ul class="tag-cloud">
+            {% for tag in tags %}
+                <li><a class="tag">{{ tag }}</a></li>
+            {% endfor %}
+        </ul>
+    </section>
 {% endblock %}
