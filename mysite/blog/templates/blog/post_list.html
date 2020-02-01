@@ -10,4 +10,10 @@
             <p>{{ post.text|linebreaksbr }}</p>
         </div>
     {% endfor %}
+    <div class="tag-cloud">
+        <p class="tag-cloud-title">Chmura tagów</p>
+        {% for tag in tags %}
+            <a class="tag">{{ tag }}</a>
+        {% endfor %}
+    </div>
 {% endblock %}

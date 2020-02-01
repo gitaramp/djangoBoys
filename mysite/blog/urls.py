@@ -1,5 +1,8 @@
 from django.urls import path
+
 from . import views
+from taggit_templatetags2.views import TagCanvasListView
+
 
 urlpatterns = [
     path('', views.post_list, name='post_list'),
