@@ -14,6 +14,11 @@ def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
     return render(request, 'blog/post_detail.html', {'post': post})
 
+def tag_detail(request, pk):
+    tag = get_object_or_404(Tag, pk=pk)
+    posts = Post.objects.filter(tags=pk)
+    return render(request, 'blog/tag_detail.html', {'tag':tag, 'posts':posts})
+
 def post_new(request):
     if request.method == "POST":
        form = PostForm(request.POST)
